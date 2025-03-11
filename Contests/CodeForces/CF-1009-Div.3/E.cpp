@@ -3,7 +3,7 @@
 // @formatter:off
 #include <bits/stdc++.h>
 #define dbg(x) std::cout<<#x<<":"<<x<<" "
-#define endl "\n"
+//#define endl "\n"
 #define Dcmp(x) greater<#x>
 #define YES std::cout<<"YES"<<endl
 #define Yes std::cout<<"Yes"<<endl
@@ -36,46 +36,18 @@ int T=0;
 void solve(){
     int n;
     cin>>n;
-    if(n==3){
-        cout<<"! 1 2 3"<<endl;
-        return;
+    int p1=1,p2=2,p3=3;
+    while(1){
+        cout<<'?'<<' '<<p1<<' '<<p2<<' '<<p3<<endl;
+        int x;
+        cin>>x;
+        if(x==0) break;
+        int rd=rand()%3;
+        if(rd==0) p1=x;
+        if(rd==1) p2=x;
+        if(rd==2) p3=x;
     }
-    int i=1,j=2,k=3,cnt=0,Max=5,quer=0;
-    bool flg=0;
-    while(quer<75){
-        cout<<'?'<<i<<' '<<j<<' '<<k<<endl;
-        quer++;
-        int res;
-        cin>>res;
-        if(res==-1) exit(0);
-        if(res==0){
-            cout<<'?'<<i<<' '<<j<<' '<<k<<endl;
-            flg=1;
-            break;
-        }
-        else{
-            k=res;
-            cnt++;
-            if(cnt>Max){
-                j++;
-                if(j>n){
-                    j=2;
-                    i++;
-                    if(i>=j){
-                        i=1;
-                        j=2;
-                    }
-                }
-                k=j+1;
-                if(k>n) k=1;
-                cnt=0;
-            }
-        }
-        if(!flg) cout<<'?'<<i<<' '<<j<<' '<<k<<endl;
-        int v;
-        cin>>v;
-        if(v==-1) exit(0);
-    }
+    cout<<'!'<<' '<<p1<<' '<<p2<<' '<<p3<<endl;
 }
 
 int main(){
